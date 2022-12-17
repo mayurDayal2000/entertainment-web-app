@@ -1,0 +1,34 @@
+/* reset styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif !important;
+}
+
+:root {
+  --shade-red: hsl(0, 97%, 63%);
+  --shade-dark: hsl(223, 30%, 9%);
+  --shade-light: hsl(223, 23%, 46%);
+  --shade-blue: hsl(223, 36%, 14%);
+  --shade-white: hsl(0, 0%, 100%);
+}
+
+body {
+  background-color: var(--shade-dark);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}

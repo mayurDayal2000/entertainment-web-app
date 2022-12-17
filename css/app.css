@@ -1,0 +1,143 @@
+/* reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif !important;
+}
+
+:root {
+  --shade-red: hsl(0, 97%, 63%);
+  --shade-dark: hsl(223, 30%, 9%);
+  --shade-light: hsl(223, 23%, 46%);
+  --shade-blue: hsl(223, 36%, 14%);
+  --shade-white: hsl(0, 0%, 100%);
+}
+
+body {
+  background-color: var(--shade-dark);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Navigation panel styling */
+nav.navbar {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: var(--shade-blue);
+}
+
+@media screen and (min-width: 768px) {
+  nav.navbar {
+    width: calc(100% - 3rem);
+    margin: 1.5rem;
+    padding-block: 1.25rem;
+    border-radius: 0.625rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  nav.navbar {
+    margin: 2rem;
+    padding: 2rem 1.75rem;
+    flex-direction: column;
+    width: 6.25rem;
+    height: calc(100vh - 4rem);
+    border-radius: 1.25rem;
+  }
+}
+
+nav.navbar img[alt="logo icon"] {
+  width: 25px;
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  nav.navbar img[alt="logo icon"] {
+    width: 32px;
+    height: 25px;
+  }
+}
+
+nav.navbar ul.nav-panel {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  nav.navbar ul.nav-panel {
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  nav.navbar ul.nav-panel {
+    gap: 2.5rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+nav.navbar ul.nav-panel a.nav-link > img {
+  filter: invert(42%) sepia(13%) saturate(1201%) hue-rotate(185deg)
+    brightness(90%) contrast(85%);
+  transition: filter 0.25s ease-in;
+  width: 16px;
+  height: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  nav.navbar ul.nav-panel a.nav-link > img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+nav.navbar ul.nav-panel a.nav-link:hover > img,
+nav.navbar ul.nav-panel a.nav-link.active > img {
+  filter: none;
+}
+
+nav.navbar span.nav-user {
+  border: 2px solid var(--shade-white);
+  border-radius: 50%;
+}
+
+nav.navbar span.nav-user img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  nav.navbar span.nav-user img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  nav.navbar span.nav-user img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/*# sourceMappingURL=app.css.map */
