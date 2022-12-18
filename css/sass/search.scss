@@ -1,0 +1,67 @@
+/* search form styling */
+main {
+  width: calc(100% - 1rem * 2);
+  margin: 0 1rem;
+
+  @media screen and (min-width: 768px) {
+    width: calc(100% - 1.5rem * 2);
+    margin: 0 1.5rem;
+  }
+
+  form.search-form {
+    margin-block: 1.5rem;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+
+    @media screen and (min-width: 768px) {
+      margin-block: 2rem;
+      column-gap: 1.5rem;
+    }
+
+    @media screen and (min-width: 1200px) {
+      margin: 46px 0 34px;
+    }
+
+    span.search-icon > img {
+      width: 24px;
+      height: 24px;
+
+      @media screen and (min-width: 768px) {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid transparent;
+      padding-block: 0.875rem;
+
+      font-weight: 300;
+      font-size: 1rem;
+      color: var(--shade-white);
+      caret-color: var(--shade-red);
+
+      &:focus {
+        border-bottom-color: var(--shade-light);
+        color: var(--shade-white);
+      }
+
+      &::-webkit-input-placeholder,
+      &::-moz-placeholder,
+      &:-ms-input-placeholder,
+      &::-ms-input-placeholder,
+      &::placeholder {
+        font-weight: 300;
+        color: var(--shade-white);
+        opacity: 0.5;
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

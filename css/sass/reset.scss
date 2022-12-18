@@ -33,6 +33,19 @@ img {
   vertical-align: middle;
 }
 
+input {
+  background: none;
+  border: none;
+  outline: none;
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    background: none;
+    outline: none;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   #root {
     display: grid;
