@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /* reset styles */
 * {
   margin: 0;
@@ -241,6 +243,167 @@ main form.search-form input::placeholder {
 @media screen and (min-width: 768px) {
   main form.search-form input {
     font-size: 1.5rem;
+  }
+}
+
+section.container-sm {
+  margin-bottom: 2.5rem;
+}
+
+section.container-sm h2 {
+  font-weight: 300;
+  font-size: 1.25rem;
+  letter-spacing: -0.02rem;
+  color: var(--shade-white);
+  margin-bottom: 1.5rem;
+}
+
+section.container-sm ul.row {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (min-width: 500px) {
+  section.container-sm ul.row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 576px) {
+  section.container-sm ul.row {
+    gap: 1.875rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  section.container-sm ul.row {
+    gap: 2.5rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+section.container-sm ul.row li.col {
+  max-width: 220px;
+  border-radius: 0.5rem;
+  position: relative;
+  user-select: none;
+}
+
+section.container-sm ul.row li.col:hover {
+  transition: 5ms ease-in;
+}
+
+section.container-sm ul.row li.col .card > img {
+  width: 100%;
+  height: 110px;
+  border-radius: 0.5rem;
+}
+
+section.container-sm ul.row li.col .card span.bookmark-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--shade-dark);
+  opacity: 0.5;
+  mix-blend-mode: normal;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  cursor: pointer;
+}
+
+section.container-sm ul.row li.col .card span.bookmark-icon:hover {
+  opacity: 0;
+}
+
+section.container-sm
+  ul.row
+  li.col
+  .card
+  span.bookmark-icon:hover
+  + span.bookmark-icon.hover {
+  opacity: 0.5;
+}
+
+section.container-sm ul.row li.col .card span.bookmark-icon.hover {
+  opacity: 0;
+  z-index: 0;
+}
+
+section.container-sm ul.row li.col .card .card-content {
+  margin: 0.5rem 0 0.25rem;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--shade-white);
+  mix-blend-mode: normal;
+  opacity: 0.75;
+}
+
+@media screen and (min-width: 576px) {
+  section.container-sm ul.row li.col .card .card-content {
+    font-size: 13px;
+  }
+}
+
+section.container-sm ul.row li.col .card .card-content .card-category {
+  display: flex;
+  align-items: center;
+}
+
+section.container-sm ul.row li.col .card .card-content .card-category::before,
+section.container-sm ul.row li.col .card .card-content .card-category::after {
+  display: block;
+  content: "•";
+  color: var(--shade-white);
+  opacity: 0.5;
+  margin-inline: 7px 6px;
+  font-size: 1rem;
+}
+
+@media screen and (min-width: 576px) {
+  section.container-sm ul.row li.col .card .card-content .card-category::before,
+  section.container-sm ul.row li.col .card .card-content .card-category::after {
+    margin-inline: 8px;
+  }
+}
+
+section.container-sm ul.row li.col .card .card-content .card-category > img {
+  width: 10px;
+  height: 10px;
+  margin-right: 0.25rem;
+}
+
+@media screen and (min-width: 576px) {
+  section.container-sm ul.row li.col .card .card-content .card-category > img {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+section.container-sm ul.row li.col .card h3 {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--shade-white);
+}
+
+@media screen and (min-width: 576px) {
+  section.container-sm ul.row li.col .card h3 {
+    font-size: 1.125rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  section.container-sm ul.row li.col {
+    max-width: 280px;
   }
 }
 
