@@ -25,6 +25,12 @@ nav.navbar {
     width: 6.25rem;
     height: calc(100vh - 2rem * 2);
     border-radius: 1.25rem;
+
+    /* stick the navbar when width >= 1200px */
+    position: sticky;
+    top: 32px;
+    bottom: 0;
+    z-index: 2;
   }
 
   img[alt="logo icon"] {
