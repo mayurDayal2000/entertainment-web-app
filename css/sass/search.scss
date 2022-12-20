@@ -2,6 +2,7 @@
 main {
   width: calc(100% - 1rem * 2);
   margin: 0 1rem;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     width: calc(100% - 1.5rem * 2);
