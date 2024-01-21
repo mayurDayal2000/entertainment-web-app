@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 
 // eslint-disable-next-line react/prop-types
@@ -115,7 +116,7 @@ export const Signup = () => {
         </form>
 
         <p>
-          Alread have an account? <span>Login</span>
+          Alread have an account? <Link to="/auth-login">Login</Link>
         </p>
       </div>
     </div>
