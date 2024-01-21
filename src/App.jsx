@@ -1,3 +1,7 @@
+import { Login } from "./components/auth/login";
+
 export default function App() {
-  return <h1>Frontend Mentor Initialized!</h1>;
+  return (
+    <Login />
+  );
 }

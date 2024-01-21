@@ -1,0 +1,145 @@
+.loginContainer {
+  padding: 3rem 0;
+
+  img {
+    display: block;
+    margin: 0 auto 3.5rem;
+  }
+
+  .loginFormContainer {
+    width: 100%;
+    padding: 1.5rem 1.5rem 2rem;
+    background-color: $semi-dark-blue-accent;
+    border-radius: 10px;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -0.5px;
+      color: $pure-white;
+      margin-bottom: 1.4rem;
+    }
+
+    form {
+      margin-bottom: 1.5rem;
+
+      .inputGroup {
+        position: relative;
+
+        input,
+        label {
+          font-size: 1rem;
+          font-weight: 300;
+          opacity: 0.5;
+          color: $pure-white;
+        }
+
+        input {
+          padding: 1.5rem 1rem 0.75rem;
+          border-bottom: 1px solid $greyish-blue-accent;
+          opacity: 1;
+          position: relative;
+          caret-color: $red-error-accent;
+
+          &::placeholder {
+            color: transparent;
+          }
+
+          &:focus {
+            border-bottom-color: $pure-white;
+          }
+
+          &:nth-child(1) {
+            margin-bottom: 6px;
+          }
+          &:not(:placeholder-shown):nth-child(1) {
+            margin-bottom: 18px;
+          }
+        }
+
+        label {
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          padding: 1.125rem 1rem;
+          pointer-events: none;
+          transform-origin: 0 0;
+          transition: transform ease-in 200ms;
+        }
+
+        span {
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          padding: 1.125rem 1rem;
+          pointer-events: none;
+
+          font-size: 14px;
+          font-weight: 300;
+          color: $red-error-accent;
+        }
+
+        input:not(:placeholder-shown) ~ label,
+        input:focus ~ label {
+          transform: scale(0.85) translate(-1rem, -1rem);
+        }
+      }
+
+      input.error-input {
+        border-bottom-color: $red-error-accent;
+      }
+
+      button {
+        margin-top: 2.5rem;
+        border-radius: 6px;
+        background: $red-error-accent;
+        padding: 14px 28px;
+
+        font-size: 1rem;
+        font-weight: 300;
+        color: $pure-white;
+        transition: all linear 280ms;
+
+        &:hover {
+          background: $pure-white;
+          color: $semi-dark-blue-accent;
+        }
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: $pure-white;
+      text-align: center;
+
+      span {
+        color: $red-error-accent;
+        margin-inline-start: 8px;
+      }
+    }
+  }
+}
+
+// responsive styles
+
+@media screen and (min-width: 768px) {
+  .loginContainer {
+    padding: 5rem 0;
+
+    img {
+      margin-bottom: 4.5rem;
+    }
+
+    .loginFormContainer {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 2rem;
+      border-radius: 20px;
+    }
+  }
+}
