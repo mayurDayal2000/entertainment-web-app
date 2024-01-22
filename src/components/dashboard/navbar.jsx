@@ -20,7 +20,7 @@ export const Navbar = () => {
         <li>
           <NavLink
             to="/dashboard"
-            className={({ isActive }) => (isActive ? "active" : "")}>
+            end>
             <img
               src={homeIcon}
               alt="home icon"
@@ -28,9 +28,7 @@ export const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/dashboard/movies"
-            className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink to="/dashboard/movies">
             <img
               src={movieIcon}
               alt="movie icon"
@@ -38,9 +36,7 @@ export const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/dashboard/tv-series"
-            className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink to="/dashboard/tv-series">
             <img
               src={tvIcon}
               alt="tv icon"
@@ -48,9 +44,7 @@ export const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/dashboard/bookmarks"
-            className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink to="/dashboard/bookmarks">
             <img
               src={bookmarkIcon}
               alt="bookmark icon"
