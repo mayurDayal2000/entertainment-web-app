@@ -1,0 +1,49 @@
+.searchPanel {
+  width: 100%;
+  padding: 1.5rem 0;
+
+  form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      user-select: none;
+      padding-bottom: 1rem;
+    }
+
+    input {
+      color: $pure-white;
+      font-size: 1rem;
+      font-weight: 300;
+      opacity: 1;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1rem;
+      caret-color: $red-error-accent;
+
+      &::placeholder {
+        opacity: 0.5;
+      }
+
+      &:active,
+      &:focus {
+        border-bottom-color: $greyish-blue-accent;
+      }
+    }
+  }
+}
+
+// responsive styles
+@media screen and (min-width: 768px) {
+  .searchPanel {
+    padding: 2rem 0;
+
+    form {
+      gap: 1.5rem;
+
+      input {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
