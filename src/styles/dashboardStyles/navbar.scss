@@ -73,11 +73,11 @@ body {
     flex-direction: column;
     width: fit-content;
     min-height: calc(100vh - 2.25rem - 2rem);
+    gap: 4.5rem;
 
     ul {
       flex-direction: column;
       flex: 1 1 100%;
-      margin-top: 4.5rem;
     }
   }
 }
