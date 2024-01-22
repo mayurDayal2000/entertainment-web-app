@@ -1,0 +1,24 @@
+@import "./navbar.scss";
+@import "./search.scss";
+
+.dashboardContainer {
+  main {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .dashboardContainer {
+    main {
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .dashboardContainer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2.25rem;
+  }
+}

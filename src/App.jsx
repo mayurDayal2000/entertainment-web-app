@@ -1,7 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Signup } from "./components/auth/signup";
 import { Login } from "./components/auth/login";
-import { Navbar } from "./components/dashboard/navbar";
+import { Dashboard } from "./components/dashboard/dashboard";
+import { DashboardMovies } from "./components/dashboard/dashboardMovies";
+import { DashboardTV } from "./components/dashboard/dashboardTV";
+import { DashboardBookmark } from "./components/dashboard/dashboardBookmark";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +17,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Navbar />,
+    element: <Dashboard />,
+  },
+  {
+    path: "/dashboard/movies",
+    element: <DashboardMovies />,
+  },
+  {
+    path: "/dashboard/tv-series",
+    element: <DashboardTV />,
+  },
+  {
+    path: "/dashboard/bookmarks",
+    element: <DashboardBookmark />,
   },
 ]);
 
