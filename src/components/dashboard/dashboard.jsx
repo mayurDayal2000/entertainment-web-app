@@ -2,16 +2,19 @@ import { useEffect, useState } from "react";
 import { CardTemplate } from "../cards/cardTemplate";
 import { Navbar } from "./navbar";
 import { SearchPanel } from "./search";
-import { getTrendingData } from "../../api/homepage.api";
+import { getRecommendedData, getTrendingData } from "../../api/homepage.api";
 
 export const Dashboard = () => {
   const initialCardData = new Array(10).fill(null);
-  const [cardData, setCardData] = useState(initialCardData);
+  const [cardData, setCardData] = useState({
+    trending: initialCardData,
+    recommend: initialCardData,
+  });
 
   useEffect(() => {
     (async () => {
-      const response = await getTrendingData();
-      setCardData(response);
+      const [trendingResp, recommendResp] = await Promise.all([getTrendingData(), getRecommendedData()]);
+      setCardData({ trending: trendingResp, recommend: recommendResp });
     })();
   }, []);
 
@@ -25,12 +28,12 @@ export const Dashboard = () => {
           <CardTemplate
             category="Trending"
             cardSize="LG"
-            cardArr={cardData}
+            cardArr={cardData.trending}
           />
           <CardTemplate
             category="Recommended for you"
             cardSize="SM"
-            cardArr={cardData}
+            cardArr={cardData.recommend}
           />
         </div>
       </main>
