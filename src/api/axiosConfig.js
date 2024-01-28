@@ -1,0 +1,6 @@
+import axios from "axios";
+
+export const https = axios.create({
+  baseURL: "https://api.jikan.moe/v4",
+  headers: { "Content-Type": "application/json" },
+});
