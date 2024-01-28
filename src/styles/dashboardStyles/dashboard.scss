@@ -1,6 +1,6 @@
 @import "./navbar.scss";
 @import "./search.scss";
-@import "./../card/card.scss";
+@import "./../card/cardContainer.scss";
 
 .dashboardContainer {
   main {
@@ -18,8 +18,9 @@
 
 @media screen and (min-width: 1280px) {
   .dashboardContainer {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 2.25rem;
+    main {
+      overflow-x: hidden;
+      margin-left: calc(2.25rem + 98px);
+    }
   }
 }

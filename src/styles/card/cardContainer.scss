@@ -1,0 +1,51 @@
+@import "./card.scss";
+
+section {
+  margin-bottom: 24px;
+
+  h1 {
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: -0.32px;
+    color: $pure-white;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    gap: 1rem;
+    width: 100%;
+
+    &.smallCardUL {
+      overflow-x: visible;
+      flex-wrap: wrap;
+      gap: 1.5rem 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    margin-bottom: 2.5rem;
+
+    h1 {
+      font-size: 2rem;
+      letter-spacing: -0.5px;
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      gap: 2.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  section {
+    ul.smallCardUL {
+      gap: 2.5rem 2rem;
+    }
+  }
+}

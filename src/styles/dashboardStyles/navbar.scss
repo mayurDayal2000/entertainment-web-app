@@ -74,6 +74,7 @@ body {
     width: fit-content;
     min-height: calc(100vh - 2.25rem - 2rem);
     gap: 4.5rem;
+    position: fixed;
 
     ul {
       flex-direction: column;
