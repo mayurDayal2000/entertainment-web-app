@@ -32,17 +32,23 @@ const BookmarkButton = ({ isBookmarked, onClick }) => (
   </button>
 );
 
-export const Card = ({ cardSize }) => {
+export const Card = ({ cardSize, cardData }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
 
-  const currentCategory = "movie";
+  const cardDataContent = {
+    image: cardData?.images.webp.large_image_url,
+    title: cardData?.title_english ?? cardData?.title,
+    aired: cardData?.year,
+    type: cardData?.type,
+    rating: cardData?.rating.split(" ")[0],
+  };
 
   return (
     <article className={cardSize === "SM" ? "smallCard" : "largeCard"}>
       <div className="cardImg">
         <img
-          src="https://placehold.co/250x150"
-          alt=""
+          src={cardDataContent.image}
+          alt={`${cardDataContent.title} banner`}
         />
         <BookmarkButton
           isBookmarked={isBookmarked}
@@ -52,14 +58,14 @@ export const Card = ({ cardSize }) => {
 
       <div className="cardContent">
         <div className="cardData">
-          <time dateTime="2019">2019</time>
+          <time dateTime={cardDataContent.aired}>{cardDataContent.aired}</time>
           &bull;
-          <CategoryIcon category={currentCategory} />
+          <CategoryIcon category={cardDataContent.type} />
           &bull;
-          <span>18+</span>
+          <span>{cardDataContent.rating}</span>
         </div>
 
-        <h3>The Great Lands</h3>
+        <h3>{cardDataContent.title}</h3>
       </div>
     </article>
   );

@@ -1,10 +1,20 @@
+import { useEffect, useState } from "react";
 import { CardTemplate } from "../cards/cardTemplate";
 import { Navbar } from "./navbar";
 import { SearchPanel } from "./search";
+import { getTrendingData } from "../../api/homepage.api";
 
 export const Dashboard = () => {
-  const cardArr = new Array(10).fill(null);
-  
+  const initialCardData = new Array(10).fill(null);
+  const [cardData, setCardData] = useState(initialCardData);
+
+  useEffect(() => {
+    (async () => {
+      const response = await getTrendingData();
+      setCardData(response);
+    })();
+  }, []);
+
   return (
     <div className="dashboardContainer">
       <Navbar />
@@ -15,12 +25,12 @@ export const Dashboard = () => {
           <CardTemplate
             category="Trending"
             cardSize="LG"
-            cardArr={cardArr}
+            cardArr={cardData}
           />
           <CardTemplate
             category="Recommended for you"
             cardSize="SM"
-            cardArr={cardArr}
+            cardArr={cardData}
           />
         </div>
       </main>

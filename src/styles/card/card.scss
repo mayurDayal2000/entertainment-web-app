@@ -74,6 +74,9 @@ $font-size-large: 1rem;
     h3 {
       font-weight: 500;
       @include responsive-font-size(14px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }
