@@ -44,7 +44,7 @@ export const Card = ({ cardSize, cardData }) => {
   };
 
   return (
-    <article className={cardSize === "SM" ? "smallCard" : "largeCard"}>
+    <article className={`${cardSize === "SM" ? "smallCard" : "largeCard"} flip-in`}>
       <div className="cardImg">
         <img
           src={cardDataContent.image}

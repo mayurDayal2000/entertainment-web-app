@@ -14,7 +14,7 @@ export const Dashboard = () => {
   useEffect(() => {
     (async () => {
       const [trendingResp, recommendResp] = await Promise.all([getTrendingData(), getRecommendedData()]);
-      setCardData({ trending: trendingResp, recommend: recommendResp });
+      setCardData({ trending: trendingResp || initialCardData, recommend: recommendResp || initialCardData });
     })();
   }, []);
 
