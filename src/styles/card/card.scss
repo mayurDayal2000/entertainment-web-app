@@ -1,9 +1,17 @@
 // Variables
 $small-card-width: 10.25rem;
-$large-card-width: 15rem;
+$small-card-img-height: 6.875rem;
 $small-card-width-md: 13.75rem;
-$large-card-width-md: 29.375rem;
+$small-card-img-height-md: 8.75rem;
 $small-card-width-lg: 17.5rem;
+$small-card-img-height-lg: 10.875rem;
+
+$large-card-width: 15rem;
+$large-card-img-height: 8.75rem;
+$large-card-width-md: 29.375rem;
+$large-card-img-height-md: 14.375rem;
+$large-card-width-lg: 29.375rem;
+
 $font-size-small: 0.75rem;
 $font-size-medium: 0.875rem;
 $font-size-large: 1rem;
@@ -26,7 +34,6 @@ $font-size-large: 1rem;
 
 // Base Card Styles
 .card {
-  width: $small-card-width;
   user-select: none;
 
   &Img {
@@ -35,7 +42,9 @@ $font-size-large: 1rem;
     & > img {
       border-radius: 8px;
       width: 100%;
+      height: $small-card-img-height;
       display: block;
+      object-fit: cover;
     }
 
     button {
@@ -83,11 +92,26 @@ $font-size-large: 1rem;
 
 // small card styles
 .smallCard {
+  width: 100%;
+
+  .cardImg > img {
+    height: 100%;
+  }
+
+  @media screen and (min-width: 376px) {
+    width: $small-card-width;
+  }
+
   @media screen and (min-width: 768px) {
     width: $small-card-width-md;
 
+    .cardImg > img {
+      height: $small-card-img-height-md;
+    }
+
     .cardImg button {
       top: 16px;
+      margin-bottom: 10rem;
       right: 16px;
     }
 
@@ -105,6 +129,10 @@ $font-size-large: 1rem;
 
   @media screen and (min-width: 1280px) {
     width: $small-card-width-lg;
+
+    .cardImg > img {
+      height: 15rem;
+    }
   }
 }
 
@@ -115,7 +143,7 @@ $font-size-large: 1rem;
 
   .cardImg {
     & > img {
-      height: 8.75rem;
+      height: $large-card-img-height;
       object-fit: cover;
     }
   }
@@ -148,12 +176,12 @@ $font-size-large: 1rem;
 
     .cardImg {
       & > img {
-        height: 14.375rem;
+        height: $large-card-img-height-md;
       }
 
       button {
         top: 16px;
-        right: 24px;
+        right: 16px;
       }
     }
 
