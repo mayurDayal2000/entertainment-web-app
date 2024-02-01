@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import bookmarkEmptyIcon from "../../assets/icon-bookmark-empty.svg";
-import bookmarkFilledIcon from "../../assets/icon-bookmark-full.svg";
-import movieIcon from "../../assets/icon-category-movie.svg";
-import tvIcon from "../../assets/icon-category-tv.svg";
+import bookmarkEmptyIcon from "@assets/icon-bookmark-empty.svg";
+import bookmarkFilledIcon from "@assets/icon-bookmark-full.svg";
+import movieIcon from "@assets/icon-category-movie.svg";
+import tvIcon from "@assets/icon-category-tv.svg";
 
 const CategoryIcon = ({ category }) => {
   const icon = category === "movie" ? movieIcon : tvIcon;

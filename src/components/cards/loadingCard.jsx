@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import placeholderImg from "../../assets/placeholder-img.svg";
+import placeholderImg from "@assets/placeholder-img.svg";
 
 export const SkeletonCard = ({ cardSize }) => {
   return (

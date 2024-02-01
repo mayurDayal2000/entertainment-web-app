@@ -1,29 +1,27 @@
 import { useEffect, useState } from "react";
-import { CardTemplate } from "../cards/cardTemplate";
-import { Navbar } from "./navbar";
-import { SearchPanel } from "./search";
-import { getMoviesData } from "../../api/homepage.api";
+import { Navbar } from "@components/layout/navbar";
+import { SearchPanel } from "@components/layout/search";
+import { getSeriesData } from "@/api/homepage.api";
+import { CardTemplate } from "@components/cards/cardTemplate";
 
-export const DashboardMovies = () => {
+export const DashboardTV = () => {
   const initialCardData = new Array(10).fill(null);
   const [cardData, setCardData] = useState(initialCardData);
 
   useEffect(() => {
     (async () => {
-      const movieResponse = await getMoviesData();
+      const movieResponse = await getSeriesData();
       setCardData(movieResponse);
     })();
   }, []);
-
   return (
     <div className="dashboardContainer">
       <Navbar />
 
       <main>
-        <SearchPanel placeholder="Search for movies" />
-
+        <SearchPanel placeholder="Search for TV series" />
         <CardTemplate
-          category="Movies"
+          category="TV Series"
           cardSize="SM"
           cardArr={cardData}
         />

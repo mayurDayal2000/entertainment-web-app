@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { CardTemplate } from "../cards/cardTemplate";
-import { Navbar } from "./navbar";
-import { SearchPanel } from "./search";
-import { getRecommendedData, getTrendingData } from "../../api/homepage.api";
+import { CardTemplate } from "@components/cards/cardTemplate";
+import { Navbar } from "@components/layout/navbar";
+import { SearchPanel } from "@components/layout/search";
+import { getRecommendedData, getTrendingData } from "@/api/homepage.api";
 
 export const Dashboard = () => {
   const initialCardData = new Array(10).fill(null);

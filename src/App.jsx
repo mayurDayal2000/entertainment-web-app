@@ -1,10 +1,10 @@
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Signup } from "./components/auth/signup";
-import { Login } from "./components/auth/login";
-import { Dashboard } from "./components/dashboard/dashboard";
-import { DashboardMovies } from "./components/dashboard/dashboardMovies";
-import { DashboardTV } from "./components/dashboard/dashboardTV";
-import { DashboardBookmark } from "./components/dashboard/dashboardBookmark";
+import { Login } from "@auth/login";
+import { Signup } from "@auth/signup";
+import { Dashboard } from "@dashboard/dashboard";
+import { DashboardMovies } from "@dashboard/dashboardMovies";
+import { DashboardTV } from "@dashboard/dashboardTV";
+import { DashboardBookmark } from "@dashboard/dashboardBookmark";
 
 const router = createBrowserRouter([
   {

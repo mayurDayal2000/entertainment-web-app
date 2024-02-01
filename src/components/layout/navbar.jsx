@@ -1,10 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/logo.svg";
-import homeIcon from "../../assets/icon-nav-home.svg";
-import movieIcon from "../../assets/icon-nav-movies.svg";
-import tvIcon from "../../assets/icon-nav-tv-series.svg";
-import bookmarkIcon from "../../assets/icon-nav-bookmark.svg";
-import profileIcon from "../../assets/image-avatar.png";
+import logo from "@assets/logo.svg";
+import homeIcon from "@assets/icon-nav-home.svg";
+import movieIcon from "@assets/icon-nav-movies.svg";
+import tvIcon from "@assets/icon-nav-tv-series.svg";
+import bookmarkIcon from "@assets/icon-nav-bookmark.svg";
+import profileIcon from "@assets/image-avatar.png";
 
 export const Navbar = () => {
   return (

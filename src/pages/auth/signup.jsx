@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.svg";
+import logo from "@assets/logo.svg";
 
 // eslint-disable-next-line react/prop-types
 const InputField = ({ type, id, label, value, error, onChange }) => (
@@ -20,15 +20,17 @@ const InputField = ({ type, id, label, value, error, onChange }) => (
   </div>
 );
 
-export const Login = () => {
+export const Signup = () => {
   const [input, setInput] = useState({
     email: "",
     password: "",
+    repeatPassword: "",
   });
 
   const [error, setError] = useState({
     email: "",
     password: "",
+    repeatPassword: "",
   });
 
   const handleChange = (event) => {
@@ -57,7 +59,7 @@ export const Login = () => {
     const emailError = validateEmail(input.email);
     const passwordError = input.password ? "" : "Can`t be empty";
 
-    setError(() => ({ email: emailError, password: passwordError }));
+    setError(() => ({ email: emailError, password: passwordError, repeatPassword: passwordError }));
 
     if (!emailError && !passwordError) {
       console.log("data submitted");
@@ -74,7 +76,7 @@ export const Login = () => {
       />
 
       <div className="loginFormContainer">
-        <h1>Login</h1>
+        <h1>Sign Up</h1>
 
         <form
           onSubmit={handleFormSubmit}
@@ -90,8 +92,17 @@ export const Login = () => {
 
           <InputField
             type="password"
-            id="password"
+            id="password01"
             label="Password"
+            value={input.password}
+            error={error.password}
+            onChange={handleChange}
+          />
+
+          <InputField
+            type="password"
+            id="password02"
+            label="Repeat Password"
             value={input.password}
             error={error.password}
             onChange={handleChange}
@@ -99,13 +110,13 @@ export const Login = () => {
 
           <button
             type="submit"
-            style={{ cursor: error.email || error.password ? "not-allowed" : "pointer" }}>
-            Login to your account
+            style={{ cursor: error.email || error.password ? "not-allowed" : "pointer", marginTop: "1.5rem" }}>
+            Create an account
           </button>
         </form>
 
         <p>
-          Don&apos;t have an account? <Link to="/auth-signup">Sign Up</Link>
+          Alread have an account? <Link to="/auth-login">Login</Link>
         </p>
       </div>
     </div>

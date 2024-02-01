@@ -1,5 +1,5 @@
-import { Navbar } from "./navbar";
-import { SearchPanel } from "./search";
+import { Navbar } from "@components/layout/navbar";
+import { SearchPanel } from "@components/layout/search";
 
 export const DashboardBookmark = () => {
   return (
