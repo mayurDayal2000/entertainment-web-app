@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Signup } from "./components/auth/signup";
 import { Login } from "./components/auth/login";
 import { Dashboard } from "./components/dashboard/dashboard";
@@ -30,6 +30,15 @@ const router = createBrowserRouter([
   {
     path: "/dashboard/bookmarks",
     element: <DashboardBookmark />,
+  },
+  {
+    path: "*",
+    element: (
+      <Navigate
+        to="/dashboard"
+        replace
+      />
+    ),
   },
 ]);
 
