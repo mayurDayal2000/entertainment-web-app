@@ -1,0 +1,18 @@
+{
+    "getTrendingData": {
+        "endpoint": "/anime",
+        "params": "?status=airing&order_by=popularity&limit=10"
+    },
+    "getRecommendedData": {
+        "endpoint": "/top/anime",
+        "params": "?filter=bypopularity"
+    },
+    "getMoviesData": {
+        "endpoint": "/anime",
+        "params": "?type=movie&order_by=popularity&status=complete&limit=20"
+    },
+    "getSeriesData": {
+        "endpoint": "/anime",
+        "params": "?type=tv&order_by=popularity&status=complete&limit=20"
+    }
+}

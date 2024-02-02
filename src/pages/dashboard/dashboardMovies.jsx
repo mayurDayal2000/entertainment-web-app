@@ -1,19 +1,12 @@
-import { useEffect, useState } from "react";
 import { CardTemplate } from "@components/cards/cardTemplate";
 import { Navbar } from "@components/layout/navbar";
 import { SearchPanel } from "@components/layout/search";
-import { getMoviesData } from "@/api/homepage.api";
+import { useFetchData } from "../../hooks/useFetchData";
+import API_ENDPOINTS from "../../api/homepage.api.json";
 
 export const DashboardMovies = () => {
-  const initialCardData = new Array(10).fill(null);
-  const [cardData, setCardData] = useState(initialCardData);
-
-  useEffect(() => {
-    (async () => {
-      const movieResponse = await getMoviesData();
-      setCardData(movieResponse);
-    })();
-  }, []);
+  const { endpoint, params } = API_ENDPOINTS.getMoviesData;
+  const { data } = useFetchData(endpoint, params);
 
   return (
     <div className="dashboardContainer">
@@ -25,7 +18,7 @@ export const DashboardMovies = () => {
         <CardTemplate
           category="Movies"
           cardSize="SM"
-          cardArr={cardData}
+          cardArr={data}
         />
       </main>
     </div>
