@@ -16,3 +16,8 @@ export const validateRepeatPassword = (password, repeatPassword) => {
   if (password !== repeatPassword) return "Passwords do not match";
   return "";
 };
+
+export const validateLoginPassword = (password) => {
+  if (!password) return "Can`t be empty";
+  return "";
+};

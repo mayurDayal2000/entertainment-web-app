@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "@assets/logo.svg";
+import { validateEmail, validateLoginPassword } from "@/utilities/formValidator";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { firebase_auth } from "@/firebase/firebase.config";
 
 // eslint-disable-next-line react/prop-types
-const InputField = ({ type, id, label, value, error, onChange }) => (
+const InputField = ({ type, id, label, value, error, onChange, onBlur, onFocus }) => (
   <div className="inputGroup">
     <input
       type={type}
@@ -13,6 +16,8 @@ const InputField = ({ type, id, label, value, error, onChange }) => (
       placeholder={label}
       value={value}
       onChange={onChange}
+      onBlur={onBlur}
+      onFocus={onFocus}
       required
     />
     <label htmlFor={id}>{label}</label>
@@ -31,40 +36,52 @@ export const Login = () => {
     password: "",
   });
 
-  const handleChange = (event) => {
+  const handleBlur = (event) => {
     const { name, value } = event.target;
-    setInput((prev) => ({ ...prev, [name]: value }));
+
+    let validationError = "";
+
+    if (name === "email") {
+      validationError = validateEmail(value);
+    } else if (name === "password") {
+      validationError = validateLoginPassword(value);
+    }
+
+    setError((prev) => ({ ...prev, [name]: validationError }));
+  };
+
+  const handleFocus = (event) => {
+    const { name } = event.target;
     setError((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const validateEmail = (email) => {
-    const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-
-    if (!email) {
-      return "Can`t be empty";
-    }
-
-    if (!emailPattern.test(email)) {
-      return "Not a valid email";
-    }
-
-    return "";
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setInput((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    const emailError = validateEmail(input.email);
-    const passwordError = input.password ? "" : "Can`t be empty";
+    const validations = {
+      email: validateEmail(input.email),
+      password: validateLoginPassword(input.password),
+    };
 
-    setError(() => ({ email: emailError, password: passwordError }));
+    setError(validations);
 
-    if (!emailError && !passwordError) {
-      console.log("data submitted");
-    } else {
-      console.log("Error found!");
+    if (validations.email || validations.password) return;
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(firebase_auth, input.email, input.password);
+      const userFound = userCredential.user;
+      console.log("Login successful: ", userFound);
+    } catch (err) {
+      console.error(`Login failed due to ${err.message}`);
     }
   };
+
+  const isFormValid = !error.email && !error.password && input.email && input.password;
 
   return (
     <div className="loginContainer">
@@ -86,6 +103,8 @@ export const Login = () => {
             value={input.email}
             error={error.email}
             onChange={handleChange}
+            onBlur={handleBlur}
+            onFocus={handleFocus}
           />
 
           <InputField
@@ -95,11 +114,14 @@ export const Login = () => {
             value={input.password}
             error={error.password}
             onChange={handleChange}
+            onBlur={handleBlur}
+            onFocus={handleFocus}
           />
 
           <button
             type="submit"
-            style={{ cursor: error.email || error.password ? "not-allowed" : "pointer" }}>
+            style={{ marginTop: "1.5rem" }}
+            disabled={!isFormValid}>
             Login to your account
           </button>
         </form>
