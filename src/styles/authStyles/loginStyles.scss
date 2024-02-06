@@ -109,9 +109,13 @@ body {
         color: $pure-white;
         transition: all linear 280ms;
 
-        &:hover {
+        &:not(:disabled):hover {
           background: $pure-white;
           color: $semi-dark-blue-accent;
+        }
+
+        &:disabled {
+          cursor: not-allowed;
         }
       }
     }
